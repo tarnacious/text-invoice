@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'text-invoice/cli'
+cli = TextInvoice::CLI.new
+puts cli.run()
+

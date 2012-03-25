@@ -1,0 +1,25 @@
+---
+invoice:
+date:
+from:
+    name: 
+    abn:
+    address1:
+    address2:
+    phone:
+    email:
+to:
+    attn:
+    for:
+    name:
+    address1:
+    address2:
+    address3:
+    phone:
+items:
+    - description: item
+      quantity: 0
+      unit: 0
+paid: 0
+terms: 
+---
