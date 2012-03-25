@@ -1,0 +1,28 @@
+---
+invoice: some-work
+date: 25/04/2012
+from:
+    name: Tarn Barford
+    abn: 46 226 458 811 
+    address1: Fairfield
+    address2: Melbourne
+    phone: 999-9999
+    email: tarn@not-my-real-email.com
+to:
+    attn: Someone
+    for: Works
+    name: Someone
+    address1: Somewhere
+    address2: World
+    address3:
+    phone:
+items:
+    - description: Having to log into windows for a few minutes
+      quantity: 0.02
+      unit: 1000000
+    - description: Programming in a Unix Environment with X, XMonad and Vim. <3
+      quantity: 10000
+      unit: 0.00
+paid: 0
+terms: Please pay me, I suffered. Thanks.
+---

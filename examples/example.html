@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>Invoice</title>
+	
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+        }
+        
+        body { 
+            font: 14px/1.4 Georgia, serif; 
+        }
+        
+        #page-wrap { 
+            width: 800px; 
+            margin: 0 auto; 
+        }
+        
+        table { 
+            border-collapse: collapse; 
+        }
+        
+        table td, table th { 
+            border: 1px solid black; 
+            padding: 5px; 
+        }
+
+        #header { 
+            height: 15px; 
+            width: 100%; 
+            margin: 20px 0; 
+            background: #222; 
+            text-align: center; 
+            color: white; 
+            font: bold 15px Helvetica, Sans-Serif; 
+            text-decoration: uppercase; 
+            padding: 8px 0px; 
+        }
+
+        #identity { 
+            width: 300px; 
+            float: left 
+        }
+        
+        #customer { 
+            width: 300px; 
+            float: right 
+        }
+
+        #customer table { 
+            width: 100% 
+        } 
+        
+        #customer table th { 
+            text-align: left; 
+            background: #eee; 
+        } 
+
+        #address { 
+            width: 250px; 
+            height: 150px; 
+            float: left; 
+        }
+        
+        #meta { 
+            margin-top: 30px; 
+            margin-bottom: 30px; 
+            width: 300px; 
+            float: right; 
+        }
+
+        #meta td { 
+            text-align: right;  
+        }
+
+        #meta td.meta-head { 
+            text-align: left; 
+            background: #eee; 
+        }
+        
+        #meta td textarea { 
+            width: 100%; 
+            height: 20px; 
+            text-align: right; 
+        }
+
+        #items { 
+            clear: both; 
+            width: 100%; 
+            margin: 30px 0 0 0; 
+            border: 1px none black; 
+        }
+        
+        #items th { 
+            background: #eee; 
+        }
+        
+        #items tr.item-row td { 
+            vertical-align: top; 
+            border: none;
+        }
+        
+        #items tr.item-row {
+            border-left: 1px solid black; 
+            border-right: 1px solid black; 
+        }
+        
+        #items tr.totals {
+            border-right: 1px solid black; 
+            border-top: 1px solid black; 
+        }
+        
+        #items tr.total {
+            border-right: 1px solid black; 
+        }
+        
+        #items tr.due {
+            background: #eee; 
+        }
+        
+        #items td.description { 
+            width: 300px; 
+        }
+        
+        #items td.blank { 
+            border: none;
+        }
+              
+        #items td.money { 
+            border-right: 0; 
+            text-align: left; 
+            padding-left: 50px; 
+        }
+
+        #terms { 
+            text-align: center; 
+            margin: 20px 0 0 0; 
+        }
+        
+        #terms h5 { 
+            text-transform: uppercase; 
+            font: 13px Helvetica, Sans-Serif; 
+            border-bottom: 1px solid black; 
+            padding: 0 0 8px 0; 
+            margin: 0 0 8px 0; 
+        }
+        
+        #terms textarea { 
+            width: 100%; 
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+		<div id="header">INVOICE</div>
+		
+		<div id="identity">
+            <div>Tarn Barford</div>
+            <div>46 226 458 811</div>
+            <br/>
+            <div>Fairfield</div>
+            <div>Melbourne</div>
+            <div>999-9999</div>
+            <div>tarn@not-my-real-email.com</div>
+		</div>
+		
+		
+		<div id="customer">
+            <table>
+                <tr>
+                    <th>
+                        To
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Someone</div>
+                        <div>Someone</div>
+                        <div>Somewhere</div>
+                        <div>World</div>
+                        <div></div>
+                        <div></div>
+                    </td>
+                 </tr>
+             </table>
+        </div>
+		<div style="clear:both"></div>
+
+        <div id="details">    
+            <table id="meta">
+                <tr>
+                    <td class="meta-head">Invoice #</td>
+                    <td>some-work</td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Date</td>
+                    <td>25/04/2012</td>
+                </tr>
+                <tr>
+                    <td class="meta-head">Amount Due</td>
+                    <td><div class="due">$20000.0</div></td>
+                </tr>
+
+            </table>
+		
+		</div>
+
+		
+		<table id="items">
+		
+		  <tr>
+		      <th>Description</th>
+		      <th>Unit Cost</th>
+		      <th>Quantity</th>
+		      <th>Price</th>
+		  </tr>
+		  
+		  <tr class="item-row">
+           <td class="description">Having to log into windows for a few minutes</td>
+           <td class="money">$1000000</td>
+           <td class="money">0.02</td>
+           <td class="money">$20000.0</td>
+		  </tr>
+          		  <tr class="item-row">
+           <td class="description">Programming in a Unix Environment with X, XMonad and Vim. &lt;3</td>
+           <td class="money">$0.0</td>
+           <td class="money">10000</td>
+           <td class="money">$0.0</td>
+		  </tr>
+          		  
+
+          <tr class="totals">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line">Total</td>
+              <td class="money"><div id="total">$20000.0</div></td>
+		  </tr>
+		  <tr class="total">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line">Amount Paid</td>
+
+              <td class="money">$0</td>
+		  </tr>
+		  <tr class="total">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line balance">Balance Due</td>
+              <td class="money"><div class="due">20000.0</div></td>
+		  </tr>
+		
+		</table>
+		
+		<div id="terms">
+		  <h5>Terms</h5>
+          Please pay me, I suffered. Thanks.
+		</div>
+	</div>
+</body>
+</html>
