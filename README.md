@@ -28,6 +28,10 @@ Get a summarised list of all invoices which contain a word
 
 You get the idea.
 
+## Installing
+
+    gem install text-invoice
+
 ## Custom templates
 
 It's just YAML so it's easy template. I use [Mustache templates][mustache] for the default HTML invoice, and added an option to support custom Mustache templates
