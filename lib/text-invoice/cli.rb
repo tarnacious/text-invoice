@@ -1,37 +1,38 @@
 require 'text-invoice'
 
 module TextInvoice
-  class CLI 
-      attr_accessor :tasks, :argv, :stdin
+  class CLI
+    attr_accessor :tasks, :argv, :stdin
 
-      def initialize()
-          @tasks = TextInvoice::Tasks.new
-          @argv = ARGV
-          @stdin = $stdin
-      end
+    def initialize()
+      @tasks = TextInvoice::Tasks.new
+      @argv = ARGV
+      @stdin = $stdin
+    end
 
-      def run()
-        mode = @argv.shift
-        if mode == "update"
-            @tasks.totals(@stdin.read)
-        elsif mode == "summary"
-            @tasks.summary(@argv)
-        elsif mode == "list"
-            @tasks.list(@argv)
-        elsif mode == "new"
-            @tasks.new_invoice()
-        elsif mode == "html"
-            @tasks.html(@stdin.read)
-        elsif mode == "template"
-            template = @argv.shift
-            if template
-                @tasks.template(@stdin.read, template)
-            else
-                @tasks.usage()
-            end
-        else
-            @tasks.usage()
-        end
+    def run()
+      mode = @argv.shift
+
+      case mode
+      when "update" then @tasks.totals(@stdin.read)
+      when "summary" then @tasks.summary(@argv)
+      when "list" then @tasks.list(@argv)
+      when "new" then @tasks.new_invoice()
+      when "html" then @tasks.html(@stdin.read)
+      when "template" then render_template
+      else @tasks.usage()
       end
+    end
+
+    private
+
+    def render_template
+      template = @argv.shift
+      if template
+        @tasks.template(@stdin.read, template)
+      else
+        @tasks.usage()
+      end
+    end
   end
 end
