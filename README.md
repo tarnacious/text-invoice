@@ -58,9 +58,9 @@ The template I'm using is a modified version of the pretty-neat-but-not-what-I-w
 
 This is the first gem I've written, and [this guide][gem-dev] was helpful.
 
-    [editable-invoice]: http://css-tricks.com/editable-invoice-v2/
-    [wkhtmltopdf]: http://code.google.com/p/wkhtmltopdf/
-    [mustache]: http://mustache.github.com/
-    [gem-dev]: https://github.com/radar/guides/blob/master/gem-development.md
-    [yaml]: http://yaml.org/
-    [wkpdf]: http://rubygems.org/gems/wkpdf
+[editable-invoice]: http://css-tricks.com/editable-invoice-v2/
+[wkhtmltopdf]: http://code.google.com/p/wkhtmltopdf/
+[mustache]: http://mustache.github.com/
+[gem-dev]: https://github.com/radar/guides/blob/master/gem-development.md
+[yaml]: http://yaml.org/
+[wkpdf]: http://rubygems.org/gems/wkpdf
