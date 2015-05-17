@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tarnacious/text-invoice.svg)](https://travis-ci.org/tarnacious/text-invoice)
+
 # Text Invoice
 
 Some tools and helpers for creating, summarising and transforming invoices stored as [YAML][yaml] documents.
