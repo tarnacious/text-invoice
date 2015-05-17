@@ -83,9 +83,10 @@ describe TextInvoice::CLI do
         expect(cli.run()).to eql("totals results")
     end
     
-    it "should return new invoice" do
+    it "should return default new invoice" do
         argv = double("argv")
         expect(argv).to receive(:shift).and_return("new")
+        expect(argv).to receive(:shift).and_return(nil)
         
         tasks = double("tasks")
         expect(tasks).to receive(:new_invoice).with(no_args()).and_return("new invoice yaml")
@@ -95,6 +96,21 @@ describe TextInvoice::CLI do
         cli.argv = argv
 
         expect(cli.run()).to eql("new invoice yaml")
+    end
+
+    it "should return custom new invoice" do
+        argv = double("argv")
+        expect(argv).to receive(:shift).and_return("new")
+        expect(argv).to receive(:shift).and_return('/custom/dir')
+        
+        tasks = double("tasks")
+        expect(tasks).to receive(:new_invoice).with('/custom/dir').and_return("new custom invoice yaml")
+        
+        cli = TextInvoice::CLI.new
+        cli.tasks = tasks
+        cli.argv = argv
+
+        expect(cli.run()).to eql("new custom invoice yaml")
     end
 
     it "should html template invoices" do

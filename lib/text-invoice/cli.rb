@@ -17,7 +17,10 @@ module TextInvoice
       when "update" then @tasks.totals(@stdin.read)
       when "summary" then @tasks.summary(@argv)
       when "list" then @tasks.list(@argv)
-      when "new" then @tasks.new_invoice()
+      when "new" then
+        # trick to avoid changing spec test and original behavior
+        custom = @argv.shift
+        custom ? @tasks.new_invoice(custom) : @tasks.new_invoice()
       when "html" then @tasks.html(@stdin.read)
       when "template" then render_template
       else @tasks.usage()
