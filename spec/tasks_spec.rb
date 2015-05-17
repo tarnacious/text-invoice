@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::Tasks do
     it "should return usage details" do

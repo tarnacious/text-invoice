@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::Totals do
     it "should add totals for empty invoice" do

@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::Template do
     it "should return invoice html the using default template" do

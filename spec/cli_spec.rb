@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::CLI do
     it "should return usage details with no parameters" do

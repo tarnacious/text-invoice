@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::Summary do
     it "should open a yaml file and update totals" do
