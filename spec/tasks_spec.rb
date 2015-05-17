@@ -46,6 +46,16 @@ describe TextInvoice::Tasks do
         expect(tasks.new_invoice()).to eql("new invoice yaml")
     end
     
+    it "should return custom blank invoice yaml" do
+        invoice = double("invoice")
+        expect(invoice).to receive(:blank).with('/template/dir').and_return("new custom invoice yaml")
+
+        tasks = TextInvoice::Tasks.new
+        tasks.invoice = invoice
+
+        expect(tasks.new_invoice('/template/dir')).to eql("new custom invoice yaml")
+    end
+
     it "should return html" do
         template = double("template")
         expect(template).to receive(:html).with({}).and_return("invoice html")

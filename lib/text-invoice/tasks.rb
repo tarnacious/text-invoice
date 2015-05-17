@@ -23,8 +23,8 @@ module TextInvoice
             @summary_calculator.list(input)
         end
 
-        def new_invoice()
-            @invoice.blank()
+        def new_invoice(input = nil)
+            @invoice.blank(input)
         end
         
         def html(invoice)
