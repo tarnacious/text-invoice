@@ -1,34 +1,46 @@
+require 'table_print'
+
 module TextInvoice
     class Summary
         def summary(invoices)
-            paid = 0
-            due = 0
-            total = 0
-            count = 0
+            content = {}
+            content['Count'] = 0
+            content['Total'] = 0
+            content['Paid']  = 0
+            content['Due']   = 0
             invoices.each do |invoice| 
                 data = load(invoice)
-                total += data["total"]
-                paid += data["paid"]
-                due += data["due"]
-                count += 1
+                content['Total'] += data['total']
+                content['Paid']  += data['paid']
+                content['Due']   += data['due']
+                content['Count'] += 1
             end
-            headings = ["Count", "Total", "Paid", "Due"].join("\t")
-            results = [count, total, paid, due].join("\t")
-            [headings, results].join("\n")
+            output_as_table( [content] )
         end
         
         def list(invoices)
-            response = [["Invoice","Date", "Total", "Paid", "Due"].join("\t")]
+            content_array = []
+            header = ["invoice","date", "total", "paid", "due"]
             invoices.each do |invoice| 
                 data = load(invoice)
-                response << ([data["invoice"], data["date"], data["total"], data["paid"], data["due"]].join("\t"))
+                inv_content = {}
+                header.each do |h|
+                  inv_content[h.capitalize] = data[h]
+                end
+                content_array << inv_content
             end
-            response.join("\n")
+            output_as_table(content_array)
         end
 
         def load(invoice)
             calculator = TextInvoice::Totals.new
             YAML.load(calculator.process(open(invoice)))
         end
+
+        private
+          def output_as_table(data)
+            TablePrint::Config.capitalize_headers = false
+            TablePrint::Printer.table_print( data )
+          end
     end
 end
