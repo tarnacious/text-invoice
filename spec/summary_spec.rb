@@ -1,4 +1,4 @@
-require 'text-invoice'
+require 'spec_helper'
 
 describe TextInvoice::Summary do
     it "should open a yaml file and update totals" do
@@ -19,8 +19,9 @@ describe TextInvoice::Summary do
         
         response = summary.summary(['file1','file2'])
     
-        headings = expect(response.split("\n")[0]).to eql(['Count','Total','Paid','Due'].join("\t"))
-        results = expect(response.split("\n")[1]).to eql(['2','20','14','6'].join("\t"))
+        expect(response.split("\n")[0]).to eql('Count | Total | Paid | Due')
+        expect(response.split("\n")[1]).to eql('------|-------|------|----')
+        expect(response.split("\n")[2]).to eql('2     | 20    | 14   | 6  ')
     end
     
     it "should return invoice list" do
@@ -31,9 +32,10 @@ describe TextInvoice::Summary do
 
         response = summary.list(['file1','file2'])
     
-        expect(response.split("\n")[0]).to eql(['Invoice','Date','Total','Paid','Due'].join("\t"))
-        expect(response.split("\n")[1]).to eql(['1','1/3/2012','10','5','5'].join("\t"))
-        expect(response.split("\n")[2]).to eql(['2','2/3/2012','10','9','1'].join("\t"))
+        expect(response.split("\n")[0]).to eql('Invoice | Date     | Total | Paid | Due')
+        expect(response.split("\n")[1]).to eql('--------|----------|-------|------|----')
+        expect(response.split("\n")[2]).to eql('1       | 1/3/2012 | 10    | 5    | 5  ')
+        expect(response.split("\n")[3]).to eql('2       | 2/3/2012 | 10    | 9    | 1  ')
     end
 end
 
