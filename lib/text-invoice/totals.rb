@@ -3,10 +3,10 @@ module TextInvoice
         def process(invoice)
             # parse
             parsed = YAML.load(invoice)
-                    
+
             # total accumulator
             total = 0
-               
+
             # process line items
             if not parsed["items"] == nil
                 for item in parsed["items"]

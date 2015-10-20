@@ -165,11 +165,20 @@
 		<div id="identity">
             <div>{{from.name}}</div>
             <div>{{from.abn}}</div>
-            <br/>
             <div>{{from.address1}}</div>
             <div>{{from.address2}}</div>
             <div>{{from.phone}}</div>
             <div>{{from.email}}</div>
+            <br>
+            <div><strong>Bankverbindung:</strong>
+                <p>{{from.bank}}<p>
+                <p>IBAN: {{from.iban}}</p>
+                <p>BIC: {{from.bic}}</p>
+            </div>
+            <br>
+            <div><strong>Steuernummer:</strong>
+                <p>{{from.steuernummer}}</p>
+            </div>
 		</div>
 		
 		
@@ -207,7 +216,7 @@
                 </tr>
                 <tr>
                     <td class="meta-head">Amount Due</td>
-                    <td><div class="due">${{due}}</div></td>
+                    <td><div class="due">EUR {{due}}</div></td>
                 </tr>
 
             </table>
@@ -219,40 +228,44 @@
 		
 		  <tr>
 		      <th>Description</th>
-		      <th>Unit Cost</th>
+		      <th>Unit Cost (EUR)</th>
 		      <th>Quantity</th>
-		      <th>Price</th>
+		      <th>Price (EUR)</th>
 		  </tr>
 		  
           {{#items}}
 		  <tr class="item-row">
            <td class="description">{{description}}</td>
-           <td class="money">${{unit}}</td>
+           <td class="money">{{unit}}</td>
            <td class="money">{{quantity}}</td>
-           <td class="money">${{subtotal}}</td>
+           <td class="money">{{subtotal}}</td>
 		  </tr>
           {{/items}}		  
 
           <tr class="totals">
 		      <td colspan="2" class="blank"> </td>
-		      <td colspan="1" class="total-line">Total</td>
-              <td class="money"><div id="total">${{total}}</div></td>
+		      <td colspan="1" class="total-line">Total (EUR)</td>
+              <td class="money"><div id="total">{{total}}</div></td>
 		  </tr>
-		  <tr class="total">
+		  <!-- 
+          <tr class="total">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line">Amount Paid</td>
-
-              <td class="money">${{paid}}</td>
+              <td class="money">{{paid}}</td>
 		  </tr>
-		  <tr class="total">
+          -->
+		  <!--
+          <tr class="total">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line balance">Balance Due</td>
               <td class="money"><div class="due">{{due}}</div></td>
 		  </tr>
-		
+          -->
 		</table>
 		
 		<div id="terms">
+          <p>Kein Ausweis von Umsatzsteuer, da Kleinunternehmer gemäß § 19 UStG.</p>
+          <br>
 		  <h5>Terms</h5>
           {{terms}}
 		</div>
