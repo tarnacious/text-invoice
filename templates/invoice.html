@@ -109,9 +109,17 @@
             border-right: 1px solid black;
         }
 
-        #items tr.totals {
+        #items tr.subtotal {
             border-right: 1px solid black;
             border-top: 1px solid black;
+        }
+
+        #items tr.tax {
+            border-right: 1px solid black;
+        }
+
+        #items tr.totals {
+            border-right: 1px solid black;
         }
 
         #items tr.total {
@@ -242,10 +250,25 @@
 		  </tr>
           {{/items}}
 
+      <tr class="subtotal">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line"></td>
+              <td class="money"><div id="subtotal">{{subtotal}}</div></td>
+		  </tr>
+      <tr class="tax">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line">MwSt (19%)</td>
+              <td class="money"><div id="tax">{{tax}}</div></td>
+		  </tr>
+      <tr class="totals">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line">Paid (EUR)</td>
+              <td class="money"><div id="tax">{{paid}}</div></td>
+		  </tr>
       <tr class="totals">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line">Total (EUR)</td>
-              <td class="money"><div id="total">{{total}}</div></td>
+              <td class="money"><div id="total">{{due}}</div></td>
 		  </tr>
 		  <!--
           <tr class="total">
@@ -264,8 +287,6 @@
 		</table>
 
 		<div id="terms">
-          <p>Kein Ausweis von Umsatzsteuer, da Kleinunternehmer gemäß § 19 UStG.</p>
-          <br>
 		  <h5>Terms</h5>
           {{terms}}
 		</div>

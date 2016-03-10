@@ -19,12 +19,17 @@ module TextInvoice
             end
 
             # update totals
-            parsed["total"] = total
+            tax = total * 0.19
+            total2 = total + tax
+
+            parsed["subtotal"] = total
+            parsed["tax"] = tax
+            parsed["total"] = total2
 
             if parsed["paid"]
-                parsed["due"] = total - parsed["paid"]
+                parsed["due"] = (total2 - parsed["paid"]).round(2)
             else
-                parsed["due"] = total
+                parsed["due"] = total2
             end
 
             parsed.to_yaml
