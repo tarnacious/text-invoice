@@ -8,7 +8,7 @@ module TextInvoice
             content['Total'] = 0
             content['Paid']  = 0
             content['Due']   = 0
-            invoices.each do |invoice| 
+            invoices.each do |invoice|
                 data = load(invoice)
                 content['Total'] += data['total']
                 content['Paid']  += data['paid']
@@ -17,11 +17,11 @@ module TextInvoice
             end
             output_as_table( [content] )
         end
-        
+
         def list(invoices)
             content_array = []
-            header = ["invoice","date", "total", "paid", "due"]
-            invoices.each do |invoice| 
+            header = ["invoice","date", "total", "paid", "due", "tax", "subtotal"]
+            invoices.each do |invoice|
                 data = load(invoice)
                 inv_content = {}
                 header.each do |h|
