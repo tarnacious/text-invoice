@@ -161,6 +161,15 @@
             width: 100%;
             text-align: center;
         }
+
+        #notes {
+          clear: both;
+          font-weight: bold;
+          padding: 5px;
+          border: solid;
+        }
+
+
     </style>
 </head>
 
@@ -231,6 +240,11 @@
 
 		</div>
 
+    {{#notes}}
+    <div id="notes">
+      {{ notes }}
+    </div>
+    {{/notes}}
 
 		<table id="items">
 
@@ -286,10 +300,12 @@
           -->
 		</table>
 
+    {{#terms}}
 		<div id="terms">
 		  <h5>Terms</h5>
           {{terms}}
 		</div>
+    {{/terms}}
 	</div>
 </body>
 </html>
