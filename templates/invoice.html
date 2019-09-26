@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=900px, initial-scale=1.0">
+
 
 	<title>Invoice</title>
 
@@ -12,11 +14,13 @@
         }
 
         body {
-            font: 14px/1.4 Georgia, serif;
+            font: 20px/1.4 Georgia, serif;
+            margin-top: 80px;
+            margin-bottom: 80px;
         }
 
         #page-wrap {
-            width: 800px;
+            width: 1400px;
             margin: 0 auto;
         }
 
@@ -30,13 +34,13 @@
         }
 
         #header {
-            height: 15px;
+            height: 30px;
             width: 100%;
             margin: 20px 0;
             background: #222;
             text-align: center;
             color: white;
-            font: bold 15px Helvetica, Sans-Serif;
+            font: bold 30px Helvetica, Sans-Serif;
             text-decoration: uppercase;
             padding: 8px 0px;
         }
@@ -267,22 +271,27 @@
       <tr class="subtotal">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line"></td>
-              <td class="money"><div id="subtotal">{{subtotal}}</div></td>
+              <td class="money"><div id="subtotal">{{subtotal_str}}</div></td>
 		  </tr>
       <tr class="tax">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line">MwSt (19%)</td>
-              <td class="money"><div id="tax">{{tax}}</div></td>
+              <td class="money"><div id="tax">{{tax_str}}</div></td>
+		  </tr>
+      <tr class="tax">
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="1" class="total-line">Subtotal</td>
+              <td class="money"><div id="tax">{{total_str}}</div></td>
 		  </tr>
       <tr class="totals">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line">Paid (EUR)</td>
-              <td class="money"><div id="tax">{{paid}}</div></td>
+              <td class="money"><div id="tax">{{paid_str}}</div></td>
 		  </tr>
       <tr class="totals">
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="1" class="total-line">Total (EUR)</td>
-              <td class="money"><div id="total">{{due}}</div></td>
+              <td class="money"><div id="total">{{due_str}}</div></td>
 		  </tr>
 		  <!--
           <tr class="total">
